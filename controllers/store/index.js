@@ -7,3 +7,11 @@ exports.getAll = async (req, res) => {
 
     return res.status(statusCode).send(func);
 }
+
+exports.create = async (req, res) => {
+    let func = await controller._create(req.body);
+
+    func.status !== 200 ? (statusCode = func.status) : (statusCode = 200);
+
+    return res.status(statusCode).send(func);
+}
